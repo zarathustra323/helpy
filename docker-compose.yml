@@ -9,7 +9,7 @@ services:
     volumes_from:
       - helpy:ro
     ports:
-      - "80:80"
+      - "5476:80"
       - "443:443"
     networks:
       - front
@@ -17,7 +17,8 @@ services:
     depends_on:
       - helpy
   helpy:
-    image: helpy/helpy
+    # image: helpy/helpy
+    build: .
     restart: always
     networks:
       - front
